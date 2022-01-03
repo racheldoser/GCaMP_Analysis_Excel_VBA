@@ -1,0 +1,12 @@
+Function NUMBASELINE(Rng As Range)
+    ' runs the min function on range of values
+    minvalue = Application.WorksheetFunction.Min(Rng)
+    baselinerng = minvalue + minvalue * 0.3
+    Dim cell As Range
+    ' counts how many values are within the baseline range
+    For Each cell In Rng
+    If cell.Value < baselinerng Then baseline = baseline + 1
+    Next cell
+    ' returns the number of values that fall into the baseline range
+    NUMBASELINE = baseline
+End Function
