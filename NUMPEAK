@@ -1,0 +1,11 @@
+Function NUMPEAK(rng1 As Range)
+    ' runs the min function
+    minvalue = Application.WorksheetFunction.Min(rng1)
+    peakrng = minvalue + minvalue * 0.3
+    Dim cell As Range
+    For Each cell In rng1
+    If cell.Value > peakrng Then peaks = peaks + 1
+    Next cell
+    ' returns the number of data values that fall in the peak range
+    NUMPEAK = peaks
+End Function••••ˇˇˇˇ
