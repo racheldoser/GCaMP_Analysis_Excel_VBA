@@ -1,0 +1,15 @@
+Function AVGPEAK(rng1 As Range)
+    ' determines the lowest value in the dataset
+    minvalue = Application.WorksheetFunction.Min(rng1)
+    ' determines the range in which values must fall in order to be considered a peak value
+    peakrng = minvalue + minvalue * 0.3
+    Dim cell As Range
+    For Each cell In rng1
+    ' if a value in the dataset is within the determined range of baseline values, then it adds up those values and then divides it by the number of values to get an average baseline value
+    If cell.Value > peakrng Then peaks = peaks + 1
+    If cell.Value > peakrng Then minvalues = minvalues + cell.Value
+    Next cell
+    avgpeaks = minvalues / peaks
+    ' returns the average peak value
+    AVGPEAK = avgpeaks
+End Function
