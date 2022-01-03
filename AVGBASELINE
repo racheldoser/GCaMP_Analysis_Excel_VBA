@@ -1,0 +1,15 @@
+Function AVGBASELINE(Rng As Range)
+    ' determines the lowest value in the dataset
+    minvalue = Application.WorksheetFunction.Min(Rng)
+    ' determines range of values that will be considered as baseline values
+    baselinerng = minvalue + minvalue * 0.3
+    Dim cell As Range
+    For Each cell In Rng
+    ' if a value in the dataset is within the determined range of baseline values, then it adds up those values and then divides it by the number of values to get an average baseline value
+    If cell.Value < baselinerng Then baseline = baseline + 1
+    If cell.Value < baselinerng Then basevalues = basevalues + cell.Value
+    Next cell
+    avgbase = basevalues / baseline
+    ' returns the average baseline of the dataset
+    AVGBASELINE = avgbase
+End Function
